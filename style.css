@@ -4,14 +4,53 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: var(--bg-color);
+}
+
 :root {
     font-size: 62.5%;
+    --bg-color-light: hsl(0, 0%, 100%);
+    --button-state-bgcolor-light: hsl(240, 9%, 89%);
+    --button-state-hover: hsl(194, 97%, 31%);
+    --button-state-icon-hover-light: hsl(0, 0%, 100%);
+    --text-color-light: hsl(0, 0%, 0%);
+    --clock-controls-color-light: hsl(0, 0%, 0%);
+    --clock-controls-hover-light: hsla(0, 0%, 2%, 0.985);
+}
 
-    --button-state-color: hsl(240, 9%, 89%);
+.dark {
+    --bg-color: hsl(0, 0%, 0%);
+    --button-state-bgcolor: transparent;
     --button-state-hover: hsl(194, 97%, 31%);
     --button-state-icon-hover: hsl(0, 0%, 100%);
+    --border-color: hsl(0, 0%, 100%);
+    --text-color: #ffffff;
+    --clock-controls-color: hsl(0, 0%, 100%);
+    --clock-controls-hover: hsl(0, 0%, 100%);
+}
 
-    --clock-controls-hover: (0, 0%, 0%, 0.764);
+html:not(.dark) .ph-sun,
+.dark .ph-moon {
+    display: none;
+}
+
+#toggle-mode {
+    position: absolute;
+    top: 3.2rem;
+    right: 3.2rem;
+    cursor: pointer;
+}
+
+.sr-only {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    overflow: hidden;
+    margin: -1px;
+    padding: 0px;
+    border: 0;
+    appearance: none;
 }
 
 body {
@@ -33,6 +72,7 @@ body {
     font-size: 9.6rem;
     font-family: sans-serif;
     font-weight: bold;
+    color: var(--text-color);
 }
 
 .clock-controls {
@@ -41,8 +81,14 @@ body {
     align-items: center;
 }
 
+html:not(.dark) i {
+    
+    color: var(--clock-controls-color-light);
+}
+
 i {
     font-size: 50px;
+    color: var(--clock-controls-color);
 }
 
 .btn-state {
@@ -54,10 +100,11 @@ i {
 .btn-state > button {
     width: 13.8rem;
     height: 15.2rem;
-    background-color: var(--button-state-color);
+    background-color: var(--button-state-bgcolor);
     border-radius: 2.4rem;
-    
-    
+    color: var(--button-state-icon-hover);
+    border: 2px solid var(--border-color);
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,18 +114,36 @@ i {
     cursor: pointer;
 }
 
-.btn-state > button:hover {
+html:not(.dark) .btn-state > button {
+    background-color: var(--button-state-bgcolor-light);
+    color: var(--button-state-icon-hover-light);
+    border: 2px solid var(--border-color-light);
+}
+
+html:not(.dark) .btn-state > button {
+    border: none;
+}
+
+.btn-state > button:hover{
     background-color: #02799D;
-    color: var(--button-state-icon-hover);
+    color: var(--button-state-icon-hover-light);
     cursor: pointer;
     transform: scale(1.1);
 }
 
-.clock-controls i:hover {
-    filter: drop-shadow(1px 1px 5px --clock-controls-hover);
-    cursor: pointer;
-    transition: .2s ease-in-out;
+html:not(.dark) .btn-state >button:hover {
+    background-color: #02799D;
     
+}
+
+.clock-controls i:hover, #toggle-mode:hover {
+    filter: drop-shadow(1px 1px 5px var(--clock-controls-hover));
+    cursor: pointer;
+    transition: .2s ease-in-out; 
+}
+
+html:not(.dark) .clock-controls i:hover, #toggle-mode:hover {
+    filter: drop-shadow(1px 1px 5px var(--clock-controls-hover-light));
 }
 
 button {
@@ -97,13 +162,33 @@ button {
         flex-direction: row;
         gap: 5rem;
     }
-    
+
 }
 
 @media screen and (min-width: 1200px) {
     #app {
         gap:19.2rem;
-        transform: translateX(10%);
     }
     
+    .animation {
+        animation-name: move-clock;
+        animation-duration: 2s;
+    }
+
+    .animation-btn-state {
+        animation-name: move-btn-state;
+        animation-duration: 2s;
+    }
+}
+
+@keyframes move-clock {
+    0% {
+        transform: translateX(30%);
+    }
+}
+
+@keyframes move-btn-state {
+    0% {
+        transform: translateX(-20%);
+    }
 }

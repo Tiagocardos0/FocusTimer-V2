@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +9,14 @@
     <script type="module" src="script.js" defer ></script>
 </head>
 <body class="darkmod">
+    <button id="toggle-mode">
+        <span class="sr-only">Ativar/Desativar light mode</span>
+        <i class="ph ph-moon"></i>
+        <i class="ph ph-sun"></i>
+    </button>
+
     <div id="app">
-        <div class="clock-controls">
+        <div class="clock-controls animation" >
             <section id="timer" class="flex">
                 <span id="minutes">00</span>
                 <span>:</span>
@@ -35,7 +41,7 @@
             </section>
         </div>
         
-        <section class="btn-state" >
+        <section class="btn-state animation-btn-state" >
             
             <button>
                 <i class="ph ph-tree"></i>
