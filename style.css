@@ -16,15 +16,27 @@ body {
 
 #app {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 19.2rem;
+    gap: 5rem;
 }
 
 
 #timer {
+    display: flex;
     font-size: 9.6rem;
     font-family: sans-serif;
     font-weight: bold;
+}
+
+.clock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+i {
+    font-size: 50px;
 }
 
 #btn-controls {
@@ -39,7 +51,42 @@ body {
     background-color: #e1e1e6;
     border-radius: 2.4rem;
     
+    
     display: flex;
     align-items: center;
     justify-content: center;
+
+    transition: .3s ease-in-out;
+
+    cursor: pointer;
+}
+
+#btn-controls > div:hover {
+    background-color: #02799D;
+    color: white;
+    filter: drop-shadow(1px 1px 14px rgb(11, 145, 235));
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.clock i:hover {
+    filter: drop-shadow(1px 1px 5px rgba(1, 1, 1, 0.764));
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    
+}
+
+@media screen and (min-width: 900px) {
+    #app {
+        flex-direction: row;
+        gap: 5rem;
+    }
+    
+}
+
+@media screen and (min-width: 1200px) {
+    #app {
+        gap:19.2rem;
+    }
+    
 }

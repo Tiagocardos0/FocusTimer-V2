@@ -6,31 +6,36 @@
     <title>Focus Timer V2</title>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js" defer ></script>
 </head>
-<body>
+<body class="darkmod">
     <div id="app">
-        <section id="timer" class="flex">
-            <span id="minutes">00</span>
-            <span>:</span>
-            <span id="seconds">00</span>
-        </section>
-
-        <section>
-            <span></span>
-        </section>
+        <div class="clock">
+            <section id="timer" class="flex">
+                <span id="minutes">00</span>
+                <span>:</span>
+                <span id="seconds">00</span>
+            </section>
+            <section>
+                <span><i class="ph ph-play-circle"></i></span>
+                <span><i class="ph ph-pause-circle"></i></span>
+                <span><i class="ph ph-plus-circle"></i></span>
+                <span><i class="ph ph-minus-circle"></i></span>
+            </section>
+        </div>
         
         <section id="btn-controls">
             <div>
-                <img src="assets/fire.svg" alt="">
+                <i class="ph ph-tree"></i>
             </div>
             <div>
-                <img src="assets/cloud.svg" alt="">
+                <i class="ph ph-cloud-snow"></i>
             </div>
             <div>
-                <img src="assets/house.svg" alt="">
+                <i class="ph ph-storefront"></i>
             </div>
             <div>
-                <img src="assets/fire.svg" alt="">
+                <i class="ph ph-fire"></i>
             </div>
         </section>
     </div>
