@@ -6,6 +6,12 @@
 
 :root {
     font-size: 62.5%;
+
+    --button-state-color: hsl(240, 9%, 89%);
+    --button-state-hover: hsl(194, 97%, 31%);
+    --button-state-icon-hover: hsl(0, 0%, 100%);
+
+    --clock-controls-hover: (0, 0%, 0%, 0.764);
 }
 
 body {
@@ -29,7 +35,7 @@ body {
     font-weight: bold;
 }
 
-.clock {
+.clock-controls {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,16 +45,16 @@ i {
     font-size: 50px;
 }
 
-#btn-controls {
+.btn-state {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 3.2rem;
 }
 
-#btn-controls > div {
+.btn-state > button {
     width: 13.8rem;
     height: 15.2rem;
-    background-color: #e1e1e6;
+    background-color: var(--button-state-color);
     border-radius: 2.4rem;
     
     
@@ -61,19 +67,29 @@ i {
     cursor: pointer;
 }
 
-#btn-controls > div:hover {
+.btn-state > button:hover {
     background-color: #02799D;
-    color: white;
-    filter: drop-shadow(1px 1px 14px rgb(11, 145, 235));
+    color: var(--button-state-icon-hover);
     cursor: pointer;
     transform: scale(1.1);
 }
 
-.clock i:hover {
-    filter: drop-shadow(1px 1px 5px rgba(1, 1, 1, 0.764));
+.clock-controls i:hover {
+    filter: drop-shadow(1px 1px 5px --clock-controls-hover);
     cursor: pointer;
     transition: .2s ease-in-out;
     
+}
+
+button {
+    border: none;
+    background: transparent;
+}
+
+/* CONTROLS */
+
+.running .ph-play-circle {
+    display: none;
 }
 
 @media screen and (min-width: 900px) {
@@ -87,6 +103,7 @@ i {
 @media screen and (min-width: 1200px) {
     #app {
         gap:19.2rem;
+        transform: translateX(10%);
     }
     
 }
