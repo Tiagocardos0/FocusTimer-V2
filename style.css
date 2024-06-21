@@ -1,0 +1,45 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    display: grid;
+    height: 100vh;
+    place-content: center;
+}
+
+#app {
+    display: flex;
+    align-items: center;
+    gap: 19.2rem;
+}
+
+
+#timer {
+    font-size: 9.6rem;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+#btn-controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3.2rem;
+}
+
+#btn-controls > div {
+    width: 13.8rem;
+    height: 15.2rem;
+    background-color: #e1e1e6;
+    border-radius: 2.4rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
