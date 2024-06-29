@@ -6,7 +6,7 @@
     <title>Focus Timer V2</title>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="script.js" defer ></script>
+    <script type="module" src="main.js" defer ></script>
 </head>
 <body class="darkmod">
     <button id="toggle-mode">
@@ -22,20 +22,20 @@
                 <span>:</span>
                 <span id="seconds">00</span>
             </section>
-            <section>
-                <button>
+            <section id="controls">
+                <button data-action="toggle-running">
                     <span><i class="ph ph-play-circle"></i></span>
                 </button>
 
-                <button>
+                <button data-action="toggle-pause">
                     <span><i class="ph ph-pause-circle"></i></span>
                 </button>
 
-                <button>
+                <button data-action="toggle-more">
                     <span><i class="ph ph-plus-circle"></i></span>
                 </button>
 
-                <button>
+                <button data-action="toggle-anyless">
                     <span><i class="ph ph-minus-circle"></i></span>
                 </button>
             </section>

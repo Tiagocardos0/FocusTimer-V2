@@ -82,7 +82,6 @@ body {
 }
 
 html:not(.dark) i {
-    
     color: var(--clock-controls-color-light);
 }
 
@@ -126,14 +125,14 @@ html:not(.dark) .btn-state > button {
 
 .btn-state > button:hover{
     background-color: #02799D;
-    color: var(--button-state-icon-hover-light);
+    
     cursor: pointer;
     transform: scale(1.1);
 }
 
 html:not(.dark) .btn-state >button:hover {
     background-color: #02799D;
-    
+    color: var(--button-state-icon-hover);
 }
 
 .clock-controls i:hover, #toggle-mode:hover {
