@@ -22,10 +22,9 @@ body {
 .dark {
     --bg-color: hsl(0, 0%, 0%);
     --button-state-bgcolor: transparent;
-    --button-state-hover: hsl(194, 97%, 31%);
-    --button-state-icon-hover: hsl(0, 0%, 100%);
+    --button-state-icon-color: hsl(0, 0%, 100%);
     --border-color: hsl(0, 0%, 100%);
-    --text-color: #ffffff;
+    --text-color: hsl(0, 0%, 100%);
     --clock-controls-color: hsl(0, 0%, 100%);
     --clock-controls-hover: hsl(0, 0%, 100%);
 }
@@ -81,14 +80,18 @@ body {
     align-items: center;
 }
 
-html:not(.dark) i {
-    color: var(--clock-controls-color-light);
-}
+/* icons */
 
 i {
     font-size: 50px;
-    color: var(--clock-controls-color);
+    color: var(--button-state-icon-color);
 }
+
+html:not(.dark) #toggle-mode > i {
+    color: black;
+}
+
+/* Estilo dos botões de estado dos sons */
 
 .btn-state {
     display: grid;
@@ -96,12 +99,19 @@ i {
     gap: 3.2rem;
 }
 
+.btn-state button:focus {
+    background-color: var(--button-state-hover);
+}
+
+html:not(.dark) .btn-state button:focus {
+    background-color: var(--button-state-hover);
+}
+
 .btn-state > button {
     width: 13.8rem;
     height: 15.2rem;
     background-color: var(--button-state-bgcolor);
     border-radius: 2.4rem;
-    color: var(--button-state-icon-hover);
     border: 2px solid var(--border-color);
 
     display: flex;
@@ -115,33 +125,29 @@ i {
 
 html:not(.dark) .btn-state > button {
     background-color: var(--button-state-bgcolor-light);
-    color: var(--button-state-icon-hover-light);
     border: 2px solid var(--border-color-light);
-}
-
-html:not(.dark) .btn-state > button {
-    border: none;
 }
 
 .btn-state > button:hover{
     background-color: #02799D;
-    
     cursor: pointer;
     transform: scale(1.1);
 }
 
-html:not(.dark) .btn-state >button:hover {
+html:not(.dark) .btn-state > button:hover {
     background-color: #02799D;
     color: var(--button-state-icon-hover);
 }
 
-.clock-controls i:hover, #toggle-mode:hover {
+/* Estilo dos butoes do clock e button do dark mode */
+
+.clock-controls i:hover, #toggle-mode i:hover {
     filter: drop-shadow(1px 1px 5px var(--clock-controls-hover));
     cursor: pointer;
     transition: .2s ease-in-out; 
 }
 
-html:not(.dark) .clock-controls i:hover, #toggle-mode:hover {
+html:not(.dark) .clock-controls i:hover, #toggle-mode i:hover {
     filter: drop-shadow(1px 1px 5px var(--clock-controls-hover-light));
 }
 
